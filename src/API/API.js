@@ -15,3 +15,24 @@ export const fetchTrendingMovies = async ({ abortController }) => {
     console.log(error);
   }
 };
+
+export const fetchMovieDetails = async id => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}&language=en-US&per_page=20`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchMovieReviews = async id => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
