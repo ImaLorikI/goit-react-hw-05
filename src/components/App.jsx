@@ -1,6 +1,6 @@
 import { Suspense, useState } from 'react';
 import { Routes, Route , } from 'react-router-dom';
-import { NavBar } from './Navbar/Navbar';
+import { NavBar } from './NavBar/NavBar';
 import MoviesPage from '../pages/MoviesPage';
 import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
