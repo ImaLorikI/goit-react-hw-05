@@ -1,0 +1,15 @@
+.active {
+  color: red;
+}
+
+.link {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0 10px;
+}
+.nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 20px;
+}
