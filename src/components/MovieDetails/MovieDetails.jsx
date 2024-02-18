@@ -2,7 +2,6 @@ import css from './MovieDetails.module.css';
 import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 export const MovieDetails = ({ data }) => {
-  console.log(data);
   return (
     <div >
       <img src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`} alt="" />
