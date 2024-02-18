@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from '../API/API';
 import { MovieDetails } from '../components/MovieDetails/MovieDetails';
+import BackLink from '../components/BackLink/BackLink';
 
 export default function MovieDetailsPage() {
+  const location = useLocation();
+  const backLinkRef = useRef(location.state);
   const [details, setDetails] = useState([]);
   const params = useParams();
   useEffect(() => {
@@ -17,5 +20,10 @@ export default function MovieDetailsPage() {
     }
     fetchData();
   }, [params]);
-  return <ul>{details && <MovieDetails data={details} />}</ul>;
+  return (
+    <ul>
+      <BackLink href={backLinkRef.current ?? '/'}>Back to all Movies</BackLink>
+      {details && <MovieDetails data={details} />}
+    </ul>
+  );
 }

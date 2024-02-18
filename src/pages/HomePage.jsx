@@ -12,7 +12,9 @@ export default function HomePage() {
       try {
         const fetchData = await fetchTrendingMovies({ abortController: controller });
         setMovies(fetchData.results);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     }
     fetchData();
   }, []);

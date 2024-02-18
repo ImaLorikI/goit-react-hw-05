@@ -27,12 +27,24 @@ export const fetchMovieDetails = async id => {
   }
 };
 
-export const fetchMovieReviews = async id => {
+export const fetchCastRew = async (id, select) => {
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/${id}/${select}?api_key=${KEY}&language=en-US`
     );
+    return response.data;
   } catch (error) {
-    console.log(error);
+    console.error(error);
+  }
+};
+
+export const fetchByQuery = async query => {
+  try {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/search/movie?query=${query}&api_key=${KEY}&language=uk-UA&include_adult=false&page=1`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
 };

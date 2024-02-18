@@ -1,9 +1,10 @@
 import css from './MovieDetails.module.css';
+import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 export const MovieDetails = ({ data }) => {
   console.log(data);
   return (
-    <div className={css.details}>
+    <div >
       <img src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`} alt="" />
       <div>
         <h2>
@@ -27,7 +28,9 @@ export const MovieDetails = ({ data }) => {
         <NavLink to="cast">Cast </NavLink>
         <NavLink to="reviews"> Reviews</NavLink>
       </div>
+      <Suspense fallback="Loading">
       <Outlet />
+      </Suspense>
     </div>
   );
 };
