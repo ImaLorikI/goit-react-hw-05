@@ -1,12 +1,14 @@
-import { Suspense, useState } from 'react';
-import { Routes, Route , } from 'react-router-dom';
+import { lazy, Suspense, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { NavBar } from './NavBar/NavBar';
 import MoviesPage from '../pages/MoviesPage';
-import HomePage from '../pages/HomePage';
+// import HomePage from '../pages/HomePage';
 import NotFoundPage from '../pages/NotFoundPage';
 import MovieDetailsPage from '../pages/MovieDetailsPage';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
 
 export const App = () => {
   return (
