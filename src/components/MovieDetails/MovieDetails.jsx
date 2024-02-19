@@ -3,15 +3,15 @@ import { Suspense } from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
 export const MovieDetails = ({ data }) => {
   return (
-    <div >
+    <div>
       <img src={`https://image.tmdb.org/t/p/w500/${data.backdrop_path}`} alt="" />
       <div>
         <h2>
-          {data.original_title}({data.release_date})
+          {data.original_title},Realized:({data.release_date})
         </h2>
         <ul>
           <li>
-            <p>User score({data.popularity}%)</p>
+            <p>User score({data.vote_average}/10)</p>
           </li>
           <li>
             <h3>Overview</h3>
@@ -24,11 +24,15 @@ export const MovieDetails = ({ data }) => {
         </ul>
       </div>
       <div>
-        <NavLink to="cast">Cast </NavLink>
-        <NavLink to="reviews"> Reviews</NavLink>
+        <NavLink state={{ from: location.state?.from }} to="cast">
+          Cast
+        </NavLink>
+        <NavLink state={{ from: location.state?.from }} to="reviews">
+          Reviews
+        </NavLink>
       </div>
       <Suspense fallback="Loading">
-      <Outlet />
+        <Outlet />
       </Suspense>
     </div>
   );

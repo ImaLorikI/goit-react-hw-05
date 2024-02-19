@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
- const BackLink = ({ href, children }) => {
-  return <Link to={href}>{children}</Link>;
+const BackLink = ({ href }) => {
+  return <Link to={href}>Back</Link>;
 };
 export default BackLink;
